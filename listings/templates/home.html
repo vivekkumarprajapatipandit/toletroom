@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Let Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-image: url("{% static 'images/honey.png' %}");
+            background-size: cover;
+            background-repeat:no-repeat;
+        }
+        .navbar-custom {
+            background-color: #000;
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link,
+        .navbar-custom .navbar-text {
+            color: #fff;
+        }
+        .navbar-custom .form-control {
+            background-color: #333;
+            border-color: #444;
+            color: #fff;
+        }
+        .navbar-custom .btn-outline-light {
+            color: #fff;
+            border-color: #fff;
+        }
+        .navbar-custom .btn-outline-light:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        .pandas{
+            color:white;
+            background-color:#154360 ;
+
+        }
+        .pandas:hover{
+            color:white;
+            background-color:green;
+            
+        }
+        .comco{
+            background-color:blue;
+            color:white;
+        }
+        .cnn img{
+            border-radius:10px;
+        }
+        .about_it{
+            text-align:justify;
+        }
+        .poo{
+            margin-left:5px;
+        }
+        .inner{
+            border:2px solid white;
+            border-radius:5px;
+            padding:5px;
+        
+        }
+        .inner:hover{
+            border:2px solid orange;
+            padding:5px;
+            background-color:white;
+        
+        
+        }
+        
+        .lining{
+        border-top:2px solid white;
+        margin-top:2rem;
+        }
+        .lining:hover{
+            border-top:2px solid orange;
+            color:orange;
+        }
+        .navbar-collapse ul li a:hover {
+            background-color:orange;
+            color:white;
+        
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom ">
+        <a class="navbar-brand" href="#">To Let</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url  'rental' %}">Rentar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'login' %}">🏛️Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Register' %}">📘Register</a>
+                  </li>
+            </ul>
+            <div class="search-bar">
+                <form method="get" action="{% url 'search' %}" class="d-flex">
+                    <input class="form-control me-2" type="text" name="query" placeholder="Search" value="{{ query }}">
+                    <button class="btn btn-primary poo" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+            <div class="results">
+                {% if results %}
+                    <table class="list-group">
+                        {% for i in results %}
+                        <tr>
+                            <td class="text-center"> {{i.name}}</td>
+                            <td class="text-center">{{i.phone}}</td>
+                            <td class="text-center">{{i.add}}</td>
+                            <td class="text-center">{{i.state}}</td>
+                            <td class="text-center">{{i.dist}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p></p>
+                {% endif %}
+            </div>
+        
+        </div>
+
+    <p class="pandas mt-2"><marquee>❓🤷🤔if you have any query  and help please contact the our contact link and find the solution (अगर किसी भी तरह की कोई मदद चाहिए तो कृपया हमारे ऊपर दिए गए संपर्क लिंक पे क्लिक करें और बेहतर समाधान पाएं)</marquee></p>
+<div class="container mt-5 ">
+    <table class="table table-bordered bottom ">
+        <tr>
+            <th class="text-center comco">✏️Name</th>
+            <th class="text-center comco">📞Phone</th>
+            <th class="text-center comco">🌍Address/Near</th>
+            <th class="text-center comco">🛣State</th>
+            <th class="text-center comco">🏢District</th>
+            <th class="text-center comco">🏰Rent Images</th>
+        </tr>
+        {% for i in image %}
+        <tr>
+            <td class="text-center "> {{i.name}}</td>
+            <td class="text-center ">{{i.phone}}</td>
+            <td class="text-center ">{{i.add}}</td>
+            <td class="text-center ">{{i.state}}</td>
+            <td class="text-center ">{{i.dist}}</td>
+            <td class="text-center "><img src="{{i.images.url}}" style="height:200px;width:250px"/> </td>               
+        </tr>
+        {% endfor %}     
+
+        
+
+    </table>  
+</div>
+
+    <div class="container-fluid  mt-5">
+        <footer class="footer bg-dark text-white p-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href="{% url 'about' %}">📩About Us</a></h5>
+                        <p class="about_it">Hello! My name is [Vivek kumar prajapati], and I am a
+                             passionate and experienced Full Stack Developer with a strong 
+                             background in both front-end and back-end development. With [6] 
+                             months of professional experience in the tech industry, I have honed my skills in creating robust, 
+                            scalable, and user-friendly websites.</p>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href = "{% url 'rental' %}" >🏚️This is for To_let </a></h5>
+                        <p class="text-center cnn " ><img   src="{% static 'images/to_let_home.jpeg' %}"/></p>
+                        
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href="#">🌐Quick Links</a></h5>
+                        <ul class="list-unstyled ">
+                            <li class="text-center"><a href="{% url 'home' %}" class="text-white ">Home</a></li>
+                            <li class="text-center"><a href="{% url 'rental' %}" class="text-white ">Rentar</a></li>
+                            <li class="text-center"><a href="{% url 'contact' %}" class="text-white ">Contact</a></li>
+                            <li class="text-center"><a href="{% url 'about' %}" class="text-white ">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href="{% url 'contact' %}">☎️Contact Us</a></h5>
+                        <p class="text-center"><i class="fa fa-map-marker  "></i>🏚️ Bhilai kohka khurud chhattisgarh 490023(India)</p>
+                        <p class="text-center"><i class="fa fa-phone  "></i>📞 (+91) 6370192107</p>
+                        <p class="text-center"><i class="fa fa-envelope  "></i> toletwebsite@.com</p>
+                        <h5 class="text-center inner">Follow Us</h5>
+                        <a href="https://www.instagram.com/prajapativivek9931515" class="text-white mr-2  text-center"><i class="fa fa-facebook">ⓕ facebook</i></a>
+                        <a href="https://www.twitter.com/yourusername" class="text-white mr-2  text-center"><i class="fa fa-twitter">🕊️ Twitter</i></a>
+                        <a href="https://www.facebook.com/yourusername" class="text-white mr-2  text-center"><i class="fa fa-instagram">𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦</i></a>
+                    </div>
+                </div>
+               <div class="lining"> 
+
+                <p class="text-center mt-5 ">👉&copy;copyright  2024 To_let websites . All rights reserved.</p>
+               </div>
+        </footer>
+       
+        
+</div>
+
+
+    <!-- Add your main content here -->
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

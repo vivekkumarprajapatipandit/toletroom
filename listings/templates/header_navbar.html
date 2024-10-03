@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+</head>
+
+<style>
+    nav{
+        background-color:blue;
+        color: white;
+    }
+    ul{
+        display: flex;
+
+    }
+    li{
+        list-style: none;
+        padding: 10px;
+    }
+    .log{
+        text-align:right;
+    }
+    a{
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+    }
+</style>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Admin</a></li>
+            <li><a href="#">customer</a></li>
+            <li><a href="{% url 'rental' %}">Renter</a></li>
+    
+            <li><a href="#">Login</a></li>
+            <li><a href="#">logout</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,330 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Let Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .navbar-custom {
+            background-color: #000;
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link,
+        .navbar-custom .navbar-text {
+            color: #fff;
+        }
+        .navbar-custom .btn-outline-light {
+            color: #fff;
+            border-color: #fff;
+        }
+        .navbar-custom .btn-outline-light:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        .comco{
+            background-color:blue;
+            color:white;
+        }
+        .cnn img{
+            border-radius:10px;
+        }
+        .about_it{
+            text-align:justify;
+        }
+        
+    
+
+    .pandas{
+        color:white;
+        background-color:#154360 ;
+
+    }
+    .pandas:hover{
+        color:white;
+        background-color:green;
+        
+    }
+    
+    
+    
+
+
+    .navbar-custom .form-control {
+        background-color: #333;
+        border-color: #444;
+        color: #fff;
+    }
+   
+    
+    
+    .contact-section {
+        width: 100%;
+        padding: 40px 0;
+    }
+    
+    .contact-form {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+    }
+    
+    .contact-form .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .contact-form .form-group label {
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .contact-form .form-group input,
+    .contact-form .form-group textarea {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .contact-form .form-group input:focus,
+    .contact-form .form-group textarea:focus {
+        border-color: #6a11cb;
+        outline: none;
+    }
+    
+    .contact-form button {
+        background: #6a11cb;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .contact-form button:hover {
+        background: #2575fc;
+    }
+    .contact-form{
+        
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input[type="text"], input[type="file"], select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #218838;
+    }
+    @media (max-width: 600px) {
+        .container {
+            padding: 15px;
+        }
+        input[type="text"], input[type="file"], select, input[type="submit"] {
+            padding: 8px;
+        }
+    }
+
+
+    input[type="number"], input[type="number"], select {
+
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    </style>
+</head>
+<body>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom ">
+        <a class="navbar-brand" href="#">To Let</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url  'rental' %}">Rentar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'login' %}">🏛️Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Register' %}">📘Register</a>
+                  </li>
+            </ul>
+            <div class="search-bar">
+                <form method="get" action="{% url 'search' %}" class="d-flex">
+                    <input class="form-control " type="text" name="query" placeholder="Search" value="{{ query }}">
+                    <button class="btn btn-primary " type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+            <div class="results">
+                {% if results %}
+                    <table class="list-group">
+                        {% for i in results %}
+                        <tr>
+                            <td class="text-center"> {{i.name}}</td>
+                            <td class="text-center">{{i.phone}}</td>
+                            <td class="text-center">{{i.add}}</td>
+                            <td class="text-center">{{i.state}}</td>
+                            <td class="text-center">{{i.dist}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p></p>
+                {% endif %}
+            </div>
+        
+        </div>
+        <p class="pandas mt-2 poo"><marquee>if you have any query  and help please contact the our contact link and find the solution (अगर किसी भी तरह की कोई मदद चाहिए तो कृपया हमारे ऊपर दिए गए संपर्क लिंक पे क्लिक करें और बेहतर समाधान पाएं)</marquee></p>
+    
+    <div class="container">
+        <h1>Rental Entry Form</h1>
+        <form  method="POST" >
+             {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="full name">
+            
+            <label for="name">Phone:</label>
+            <input type="number" id="phone" name="phone" required placeholder="phone number">
+
+
+            <label for="address">Address:</label>
+            <input type="text" id="add" name="add" required>
+            
+            <label for="state">State:</label>
+            <select id="state" name="state" required>
+                <option value=" disabled selected">Select your state</option>
+                <option >Andhra Pradesh</option>
+                <option >Arunachal Pradesh</option>
+                <option >Assam</option>
+                <option >Bihar</option>
+                <option >Chhattisgarh</option>
+                <option >Goa</option>
+                <option >Gujarat</option>
+                <option >Haryana</option>
+                <option >Himachael pradesh</option>
+                <option >Jharkhand</option>
+                <option >Karnataka</option>
+                <option >Madhya pradesh</option>
+                <option >Maharashtra</option>
+                <option >Manipur</option>
+                <option >Meghalaya</option>
+                <option >Mizoram</option>
+                <option >Nagaland</option>
+                <option >Odisha</option>
+                <option >Punjab</option>
+                <option >Rajasthan</option>
+                <option >Sikkim</option>
+                <option >TamilNadu</option>
+                <option >Tripura</option>
+                <option >Uttrakhand</option>
+                <option >Uttar Pradesh</option>
+                <option >West Bengal</option>
+                <option >Andamon and Nicobar</option>
+                <option >Dadra and Nagar Haveli and Daman & Diu</option>
+                <option >Delhi</option>
+                <option >Jammu Kashmir</option>
+                <option >Ladakh</option>
+                <option >Lakshyadeep</option>
+                <option >Puducherry</option>
+                <!-- Add more states as needed -->
+            </select>
+            
+            <label for="district">District:</label>
+            <select id="district" name="district" required>
+                <option value="" disabled selected>Select your district</option>
+                <option>Durg</option>
+                <option >Balod</option>
+                <option >Balodabazar Bhatapara</option>
+                <option >Bemetara</option>
+                <option >Bijapur</option>
+                <option >Bilaspur</option>
+                <option >Dantewada</option>
+                <option >Bastar</option>
+                <option >saran</option>
+                <option >Delhi</option>
+                <option >Patna</option>
+                <option >Muzaffarpur</option>
+                <!-- Add more districts as needed -->
+            </select>
+            
+            <label for="images">Images:</label>
+            <input type="file" id="imgs" name="imgs" required>
+            
+
+            <input type="submit" value="Submit">
+        </form>
+            
+    </div>
+    
+    {% for x in image %}
+    <img src="{x.images.url}">        
+    {% endfor %}
+
+
+</body>
+</html>

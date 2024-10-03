@@ -1,0 +1,338 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel= "stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    window.onload = function() {
+        var alertMessage = "{{ alert_message|escapejs }}";
+        if (alertMessage) {
+            alert(alertMessage);
+        }
+    }
+</script>
+</head>
+<style>
+
+    body {
+        background-color:white ;
+    }
+    .navbar-custom {
+        background-color: #000;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .navbar-text {
+        color: #fff;
+    }
+    .navbar-custom .form-control {
+        background-color: #333;
+        border-color: #444;
+        color: #fff;
+    }
+    .navbar-custom .btn-outline-light {
+        color: #fff;
+        border-color: #fff;
+    }
+    .navbar-custom .btn-outline-light:hover {
+        background-color: #fff;
+        color: #000;
+    }
+    .pandas{
+        color:white;
+        background-color:#154360 ;
+
+    }
+    .pandas:hover{
+        color:white;
+        background-color:green;
+        
+    }
+    .comco{
+        background-color:blue;
+        color:white;
+    }
+    .cnn img{
+        border-radius:10px;
+    }
+    .about_it{
+        text-align:justify;
+    }
+    .poo{
+        margin-left:3px;
+    }
+    /* this is a part of register*/
+
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.card:hover{
+    transform: scale(1.05); 
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 3rem;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #75787a;
+    border-color: #0056b3;
+}
+.cap{
+    
+    background: linear-gradient(to right, #0b0a0a, #fc4b25);
+    border:3px solid black;
+
+}
+.cap:hover{
+    
+    background: linear-gradient(to right, #0b0a0b, #fc4b24);
+    border:3px solid white;
+
+}
+.inner{
+    border:2px solid white;
+    border-radius:5px;
+    padding:5px;
+
+}
+.inner:hover{
+    border:2px solid orange;
+    padding:5px;
+    background-color:white;
+
+
+}
+
+.lining{
+border-top:2px solid white;
+margin-top:2rem;
+}
+.lining:hover{
+    border-top:2px solid orange;
+    color:orange;
+}
+.navbar-collapse ul li a:hover {
+    background-color:orange;
+    color:white;
+
+}
+ .inner{
+            border:2px solid white;
+            border-radius:5px;
+            padding:5px;
+        
+        }
+        .inner:hover{
+            border:2px solid orange;
+            padding:5px;
+            background-color:white;
+        
+        
+        }
+        
+        .lining{
+        border-top:2px solid white;
+        margin-top:2rem;
+        }
+        .lining:hover{
+            border-top:2px solid orange;
+            color:orange;
+        }
+        .navbar-collapse ul li a:hover {
+            background-color:orange;
+            color:white;
+        
+        }
+        
+
+
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom ">
+        <a class="navbar-brand" href="#">To Let</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url  'rental' %}">Rentar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'login' %}">🏛️Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Register' %}">📘Register</a>
+                  </li>
+            </ul>
+            <div class="search-bar">
+                <form method="get" action="{% url 'search' %}" class="d-flex">
+                    <input class="form-control me-2" type="text" name="query" placeholder="Search" value="{{ query }}">
+                    <button class="btn btn-primary poo" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+            <div class="results">
+                {% if results %}
+                    <table class="list-group">
+                        {% for i in results %}
+                        <tr>
+                            <td class="text-center"> {{i.name}}</td>
+                            <td class="text-center">{{i.phone}}</td>
+                            <td class="text-center">{{i.add}}</td>
+                            <td class="text-center">{{i.state}}</td>
+                            <td class="text-center">{{i.dist}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p></p>
+                {% endif %}
+            </div>
+        
+        </div>
+
+    <p class="pandas mt-2"><marquee>❓🤷🤔if you have any query  and help please contact the our contact link and find the solution (अगर किसी भी तरह की कोई मदद चाहिए तो कृपया हमारे ऊपर दिए गए संपर्क लिंक पे क्लिक करें और बेहतर समाधान पाएं)</marquee></p>
+
+    
+    <div class="container mt-5">
+        <h3 href="{url 'home'}" class="mt-2 tengent"></h3>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4>📘Register</h4>
+                    </div>
+                    <div class="card-body cap">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="username "class="text-light">Username</label>
+                                <input type="text" class="form-control " id="username" name="username" placeholder="Enter username">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-light">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-light">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password" class="text-light">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm-password" name="repeatepass" placeholder="Confirm password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-Number" class="text-light">Mobile Number</label>
+                                <input type="Number" class="form-control" id="Mnumber" name="Mnumber" placeholder="Mobile Number">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <h4 class="text-dark mt-3"><marquee>🙏 Hi There welcome to you please do the register here</marquee></h4>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="container-fluid  mt-5">
+        <footer class="footer bg-dark text-white p-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href="{% url 'about' %}">📩About Us</a></h5>
+                        <p class="about_it">Hello! My name is [Vivek kumar prajapati], and I am a
+                             passionate and experienced Full Stack Developer with a strong 
+                             background in both front-end and back-end development. With [6] 
+                             months of professional experience in the tech industry, I have honed my skills in creating robust, 
+                            scalable, and user-friendly websites.</p>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href = "{% url 'rental' %}" >🏚️This is for To_let </a></h5>
+                        <p class="text-center cnn " ><img   src="{% static 'images/to_let_home.jpeg' %}"/></p>
+                        
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href="#">🌐Quick Links</a></h5>
+                        <ul class="list-unstyled ">
+                            <li class="text-center"><a href="{% url 'home' %}" class="text-white ">Home</a></li>
+                            <li class="text-center"><a href="{% url 'rental' %}" class="text-white ">Rentar</a></li>
+                            <li class="text-center"><a href="{% url 'contact' %}" class="text-white ">Contact</a></li>
+                            <li class="text-center"><a href="{% url 'about' %}" class="text-white ">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href="{% url 'contact' %}">☎️Contact Us</a></h5>
+                        <p class="text-center"><i class="fa fa-map-marker  "></i>🏚️ Bhilai kohka khurud chhattisgarh 490023(India)</p>
+                        <p class="text-center"><i class="fa fa-phone  "></i>📞 (+91) 6370192107</p>
+                        <p class="text-center"><i class="fa fa-envelope  "></i> toletwebsite@.com</p>
+                        <h5 class="text-center">Follow Us</h5>
+                        <a href="https://www.instagram.com/prajapativivek9931515" class="text-white mr-2  text-center"><i class="fa fa-facebook">ⓕ facebook</i></a>
+                        <a href="https://www.twitter.com/yourusername" class="text-white mr-2  text-center"><i class="fa fa-twitter">🕊️ Twitter</i></a>
+                        <a href="https://www.facebook.com/yourusername" class="text-white mr-2  text-center"><i class="fa fa-instagram">𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦</i></a>
+                    </div>
+                </div>
+                <div class="lining">
+
+                <p class="text-center mt-5">👉&copy;copyright  2024 To_let websites . All rights reserved.</p>
+                </div>
+        </footer>
+       
+        
+</div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

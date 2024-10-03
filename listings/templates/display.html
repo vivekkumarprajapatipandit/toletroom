@@ -1,0 +1,90 @@
+<Html>  
+    <head>  
+      
+      {% load static %} 
+        <title> Book List  </title>  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+        <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/all.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css.map' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/owl.carousel.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/sytle.css' %}">
+    
+        <link rel="stylesheet" href="{% static 'libraryapp/static/all.min.js' %}">
+        <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js' %}">
+        <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js.map' %}">
+        <link rel="stylesheet" href="{% static 'libraryapp/static/owl.carousel.min.js' %}">
+        <link rel="stylesheet" href="{% static 'libraryapp/static/myscript.js' %}">
+    <style>
+        a{
+            text-decoration: none;
+            color: red;
+        }
+      table{
+        width: 100%;
+
+      }
+      th, td {
+        padding: 10px;
+        border-bottom: 1px solid blue;
+      }
+      tr:hover{
+        background-color: #D6EEEE;
+      }
+      
+     
+    </style>
+
+    </head>
+    <body> 
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                    <a href="{% url 'home' %}" class="btn btn-warning mt-5" title="Go to Home"><i class="fa fa-home"></i></a>
+                   </div>
+                <div class="offset-md-9 col-md-2">
+                    <h4 class="mt-5"><a class="text-danger" href= "{% url 'Book_entry' %}">📖Enter New Book</a></h4>
+                  </div>
+            </div>
+        </div> 
+
+    
+    <div class="container">
+      <h1 class="text-center text-success "></h1>
+    
+
+    <table> 
+    <tr>
+    <th>Name
+    <th>Phone</th>
+    <th>Address</th>
+    <th>State</th>
+    <th>District</th>
+    <th>Rent Images</th>
+    </tr>
+</div>
+
+        {% for i in S1 %}
+        <tr>
+            <td>{{i.Name}}</td>
+            <td>{{i.Phone}}</td>
+            <td>{{i.Address}}</td>
+            <td>{{i.State}}</td>
+            <td>{{i.District}}</td>
+            <td>{{i.Rent Images}}</td>
+            <td><a href= "{% url 'delete' i.id %}">Delete</td>
+            <td><a href= "{% url 'edit' i.id %}">Edit</td>
+        </tr>
+        {% endfor %}
+   
+    </body>
+    </html>    
+      
+      
+   
+   
+   
+   

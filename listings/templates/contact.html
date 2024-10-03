@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+
+    body {
+        background-color:white ;
+    }
+    .navbar-custom {
+        background-color: #000;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .navbar-text {
+        color: #fff;
+    }
+    
+    .navbar-custom .btn-outline-light {
+        color: #fff;
+        border-color: #fff;
+    }
+    .navbar-custom .btn-outline-light:hover {
+        background-color: #fff;
+        color: #000;
+    }
+    .pandas{
+        color:white;
+        background-color:#154360 ;
+
+    }
+    .pandas:hover{
+        color:white;
+        background-color:green;
+        
+    }
+    .comco{
+        background-color:blue;
+        color:white;
+    }
+    .cnn img{
+        border-radius:10px;
+    }
+    .about_it{
+        text-align:justify;
+    }
+    .poo{
+        margin-left:5px;
+    }
+    
+
+
+    .navbar-custom .form-control {
+        background-color: #333;
+        border-color: #444;
+        color: #fff;
+    }
+    .navbar-custom .btn-outline-light {
+        color: #fff;
+        border-color: #fff;
+    }
+    .navbar-custom .btn-outline-light:hover {
+        background-color: #fff;
+        color: #000;
+    }
+   
+    
+    
+    .contact-section {
+        width: 100%;
+        padding: 40px 0;
+    }
+    
+    .contact-form {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+    }
+    
+    .contact-form .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .contact-form .form-group label {
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .contact-form .form-group input,
+    .contact-form .form-group textarea {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .contact-form .form-group input:focus,
+    .contact-form .form-group textarea:focus {
+        border-color: #6a11cb;
+        outline: none;
+    }
+    
+    .contact-form button {
+        background: #6a11cb;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .contact-form button:hover {
+        background: #2575fc;
+    }
+    .contact-form{
+        
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+
+    }
+    .poo{
+        margin-left:5px;
+    }
+    .contact-form {
+            background: linear-gradient(to right, #0c0c0c, #fc5325);
+            transition: transform 0.3s;
+    }
+    .contact-form:hover{
+        transform: scale(1.05); 
+        
+    }
+    .inner{
+        border:2px solid white;
+        border-radius:5px;
+        padding:5px;
+    
+    }
+    .inner:hover{
+        border:2px solid orange;
+        padding:5px;
+        background-color:white;
+    
+    
+    }
+    
+    .lining{
+    border-top:2px solid white;
+    margin-top:2rem;
+    }
+    .lining:hover{
+        border-top:2px solid orange;
+        color:orange;
+    }
+    .navbar-collapse ul li a:hover {
+        background-color:orange;
+        color:white;
+    
+    }
+    
+    
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom ">
+        <a class="navbar-brand" href="#">To Let</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url  'rental' %}">Rentar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'login' %}">🏛️Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Register' %}">📘Register</a>
+                  </li>
+            </ul>
+            <div class="search-bar">
+                <form method="get" action="{% url 'search' %}" class="d-flex">
+                    <input class="form-control me-2" type="text" name="query" placeholder="Search" value="{{ query }}">
+                    <button class="btn btn-primary poo " type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+            <div class="results">
+                {% if results %}
+                    <table class="list-group">
+                        {% for i in results %}
+                        <tr>
+                            <td class="text-center"> {{i.name}}</td>
+                            <td class="text-center">{{i.phone}}</td>
+                            <td class="text-center">{{i.add}}</td>
+                            <td class="text-center">{{i.state}}</td>
+                            <td class="text-center">{{i.dist}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p></p>
+                {% endif %}
+            </div>
+        
+        </div>
+
+
+        
+<body>
+    
+    
+    <p class="pandas mt-2 poo"><marquee>if you have any query  and help please contact the our contact link and find the solution (अगर किसी भी तरह की कोई मदद चाहिए तो कृपया हमारे ऊपर दिए गए संपर्क लिंक पे क्लिक करें और बेहतर समाधान पाएं)</marquee></p>
+
+    
+    <div class="container-fluid">
+    
+        
+    <div class="contact-section">
+    </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="contact-form .con_tact">
+                        <h2 class="text-center text-light">Contact Us</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name" class="text-light"><i class="fas fa-user text-light"></i> Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-light " ><i class="fas fa-envelope text-light"></i> Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="text-light"><i class="fas fa-tag text-light"></i> Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="text-light"><i class="fas fa-comment text-light"></i> Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm-Number" class="text-light">Mobile Number</label>
+                                <input type="Number" class="form-control" id="M_No" name="M_no" placeholder="Mobile Number">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block text-light">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="container-fluid  mt-5">
+        <footer class="footer bg-dark text-white p-5">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href="{% url 'about' %}">📩About Us</a></h5>
+                        <p class="about_it">Hello! My name is [Vivek kumar prajapati], and I am a
+                             passionate and experienced Full Stack Developer with a strong 
+                             background in both front-end and back-end development. With [6] 
+                             months of professional experience in the tech industry, I have honed my skills in creating robust, 
+                            scalable, and user-friendly websites.</p>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href = "{% url 'rental' %}" >🏚️This is for To_let </a></h5>
+                        <p class="text-center cnn " ><img   src="{% static 'images/to_let_home.jpeg' %}"/></p>
+                        
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href="#">🌐Quick Links</a></h5>
+                        <ul class="list-unstyled ">
+                            <li class="text-center"><a href="{% url 'home' %}" class="text-white ">Home</a></li>
+                            <li class="text-center"><a href="{% url 'rental' %}" class="text-white ">Rentar</a></li>
+                            <li class="text-center"><a href="{% url 'contact' %}" class="text-white ">Contact</a></li>
+                            <li class="text-center"><a href="{% url 'about' %}" class="text-white ">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-center inner"><a href="{% url 'contact' %}">☎️Contact Us</a></h5>
+                        <p class="text-center"><i class="fa fa-map-marker  "></i>🏚️ Bhilai kohka khurud chhattisgarh 490023(India)</p>
+                        <p class="text-center"><i class="fa fa-phone  "></i>📞 (+91) 6370192107</p>
+                        <p class="text-center"><i class="fa fa-envelope  "></i> toletwebsite@.com</p>
+                        <h5 class="text-center inner">Follow Us</h5>
+                        <a href="https://www.instagram.com/prajapativivek9931515" class="text-white mr-2  text-center"><i class="fa fa-facebook">ⓕ facebook</i></a>
+                        <a href="https://www.twitter.com/yourusername" class="text-white mr-2  text-center"><i class="fa fa-twitter">🕊️ Twitter</i></a>
+                        <a href="https://www.facebook.com/yourusername" class="text-white mr-2  text-center"><i class="fa fa-instagram"> Instagram </i></a>
+                    </div>
+                </div>
+                <div class="lining">
+
+                <p class="text-center mt-5">👉&copy;copyright  2024 To_let websites . All rights reserved.</p>
+                </div>
+        </footer>
+       
+        
+</div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
